@@ -1,0 +1,29 @@
+<h1>Welcome to {{ hotelName }}</h1>
+
+<!--  null collision operator  (??)  -->
+<!-- {{ rooms?.availableRooms ?? "No Rooms Available" }} -->
+
+<!-- oprtional Chaining -->
+<!-- <div *ngIf="rooms?.availableRooms > 4">
+    <h1>Rooms are available</h1>
+</div> -->
+
+<div *ngIf="rooms?.availableRooms">
+    <h1>Rooms are available</h1>
+</div>
+
+<!-- ngFor -->
+
+<div *ngIf="rooms.availableRooms > 0">
+    <div *ngIf="selectedRoom">
+        {{ selectedRoom | json }}
+    </div>
+
+    <!--  same like props in react  -->
+    <app-room-list
+        [rooms]="roomList"
+        (selectedRoom)="selectRoom($event)"
+    ></app-room-list>
+</div>
+
+<!-- ngSwitch -->
